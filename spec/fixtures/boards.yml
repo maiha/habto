@@ -1,0 +1,10 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+b1:
+  id: 1
+  name: b1
+b2:
+  id: 2
+  name: b2
+b3:
+  id: 3
+  name: b3

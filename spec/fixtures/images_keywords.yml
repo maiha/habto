@@ -1,0 +1,22 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+c1:
+  image_id: 1
+  keyword_id: 1
+
+c2:
+  image_id: 2
+  keyword_id: 1
+
+c3:
+  image_id: 3
+  keyword_id: 1
+
+c4:
+  image_id: 4
+  keyword_id: 1
+
+b1:
+  image_id: 5
+  keyword_id: 2
+
+

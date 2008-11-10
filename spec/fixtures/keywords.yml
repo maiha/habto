@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+cute:
+  id: 1
+  name: cute
+berryz:
+  id: 2
+  name: berryz
+kuma:
+  id: 3
+  name: kuma
+nksk:
+  id: 4
+  name: nksk
+buono:
+  id: 5
+  name: buono
+

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+nksk:
+  id: 1
+  url: http://wota.jp/nksk.jpg
+airi:
+  id: 2
+  url: http://wota.jp/airi.jpg
+kanna:
+  id: 3
+  url: http://wota.jp/kanna.jpg
+kuma:
+  id: 4
+  url: http://wota.jp/kuma.jpg

@@ -1,0 +1,76 @@
+Habto
+=====
+
+Has and belongs to one
+
+This basically acts as habtm, but has two new features.
+
+1. Singular named accessor
+2. Association counter cache
+
+
+Singular named accessor
+=======================
+
+We can use not only plural named accessor but also singular one.
+
+  class User
+    habto :email
+  end
+
+  User.new.emails => []   # normal habtm accessor
+  User.new.email  => nil  # useful for handling singular data
+
+
+Association counter cache
+=========================
+
+:count option allows use to prefetch count of target in one find method,
+where the join table is used as counter cache.
+
+  class Keyword
+    habto :image
+    habto :board
+  end
+
+  class Image
+    habto :keyword
+  end
+
+  class Board
+    habto :keyword
+  end
+
+
+  ### Normal operation
+
+  Keyword.find(1)
+  => #<Keyword:0xf715348c @attributes={"name"=>"cute", "id"=>"1"}>
+
+  ### Get the count information by :count option with association names
+
+  Keyword.find(1, :count=>:images)
+  => #<Keyword:0xf707dae4 @attributes={"name"=>"cute", "image_count"=>"4", "id"=>"1", "keyword_id"=>"1"}>
+  Keyword.find(1, :count=>:boards)
+  => #<Keyword:0xf707a560 @attributes={"board_count"=>"2", "name"=>"cute", "id"=>"1", "keyword_id"=>"1"}>
+
+  ### Fetch all count information by :count option with true (same as :count=>[:images, :boards])
+
+  Keyword.find(1, :count=>true)
+  => #<Keyword:0xf7084880 @attributes={"board_count"=>"2", "name"=>"cute", "image_count"=>"4", "id"=>"1", "keyword_id"=>"1"}>
+
+
+Test
+====
+
+1. create a new rails project for test
+2. prepare files
+     ln -s vendor/plugins/habto/spec
+     rm -rf app/models
+     ln -s ../spec/app/models app/models
+     ln -s ../spec/migrate db/migrate
+3. run migrate
+4. rake spec
+
+
+Copyright (c) 2008 maiha@wota.jp, released under the MIT license
